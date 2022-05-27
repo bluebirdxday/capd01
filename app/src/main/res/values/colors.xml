@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_primary">#111111</color>
+    <color name="color_primary_variant">#111111</color>
+    <color name="color_Secondary">#2E9DE4</color>
+    <color name="color_Secondary_variant">#03DAC5</color>
+
+    <!-- Text -->
+    <color name="hint_text_color">#999999</color>
+    <color name="blue_text_color">#2E9DE4</color>
+    <color name="yellow_text_color">#FFD966</color>
+
+    <!-- Button -->
+    <color name="blue_button_color">#2E9DE4</color>
+    <color name="pressed_blue_button_color">#1C5E89</color>
+    <color name="yellow_button_color">#FFD966</color>
+    <color name="pressed_yellow_button_color">#99823D</color>
+
+    <!-- List -->
+    <color name="default_list_color">#FFFFFF</color>
+    <color name="pressed_list_color">#D6D6D6</color>
+
+    <!-- Line -->
+    <color name="default_line_color">#CCCCCC</color>
+
+    <!-- Border -->
+    <color name="edit_border_color">#CCCCCC</color>
+
+    <!-- Background Color-->
+    <color name="info_background_color">#111111</color>
+</resources>
