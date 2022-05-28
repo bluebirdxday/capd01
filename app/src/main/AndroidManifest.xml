@@ -15,8 +15,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-        </activity>
 
         <activity android:name=".DestinationSearchActivity">
             <intent-filter>
@@ -28,6 +26,13 @@
 
         <activity android:name=".DestinationListActivity">
         </activity>
+
+        <activity android:name=".ReconfirmDestinationActivity">
+        </activity>
+
+        <activity android:name=".UserGPSTest">
+        </activity>
+
     </application>
 
 

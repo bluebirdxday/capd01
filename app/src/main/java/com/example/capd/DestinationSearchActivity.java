@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import java.util.ArrayList;
 
-
+// 목적지 검색 액티비티
 
 public class DestinationSearchActivity extends AppCompatActivity {
 

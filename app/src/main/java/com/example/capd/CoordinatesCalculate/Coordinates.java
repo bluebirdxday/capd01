@@ -13,6 +13,22 @@ public class Coordinates {
     @SerializedName("meta")
     public Meta meta;
 
+    public List<Data> getDocumentsList() {
+        return documentsList;
+    }
+
+    public void setDocumentsList(List<Data> documentsList) {
+        this.documentsList = documentsList;
+    }
+
+    public Meta getMeta() {
+        return meta;
+    }
+
+    public void setMeta(Meta meta) {
+        this.meta = meta;
+    }
+
     public static class Meta{
         @SerializedName("is_end")
         private boolean is_end;

@@ -6,7 +6,7 @@ import android.util.Log;
 
 import java.util.Locale;
 
-
+// text to speech (텍스트 음성 변환)
 
 public class TTS {
 
