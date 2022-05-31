@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <!-- 탑승할 버스 번호-->
+    <TextView
+        android:id="@+id/Bording_BusNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#424242"
+        android:textSize="70dp"
+        android:textStyle="bold"
+        />
+
+    <!-- 남은 시간-->
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#424242"
+        android:textSize="50dp"
+        android:textStyle="bold"/>
+
+    <!-- 남은 정거장 수-->
+    <TextView
+        android:id="@+id/abc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#424242"
+        android:textSize="50dp"
+        android:textStyle="bold"/>
+    <!--탑승 -->
+    <Button
+        android:id="@+id/btnboard"
+        android:layout_width="match_parent"
+        android:layout_height="157dp"
+        android:insetLeft="10dp"
+        android:insetRight="10dp"
+        android:text="@string/strBoard"
+        android:textColor="#424242"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/vitro"/>
+    <!--전광판 -->
+    <Button
+        android:id="@+id/btnDpNum"
+        android:layout_width="match_parent"
+        android:layout_height="157dp"
+        android:insetLeft="10dp"
+        android:insetRight="10dp"
+        android:text="@string/strDpNum"
+        android:textColor="#424242"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/vitro"/>
+    <!--뒤로가기 -->
+    <Button
+        android:id="@+id/btnback"
+        android:layout_width="match_parent"
+        android:layout_height="157dp"
+        android:insetLeft="10dp"
+        android:insetRight="10dp"
+        android:text="@string/strBack"
+        android:textColor="#424242"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/vitro"/>
+
+</LinearLayout>

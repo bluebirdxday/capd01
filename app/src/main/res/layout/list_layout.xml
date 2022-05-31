@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <!-- 버스 번호 -->
+    <TextView
+        android:id="@+id/BusNum"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:text="4000"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <!-- 남은 버스정류장 -->
+    <TextView
+        android:id="@+id/BusStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/arrive"
+        android:text="6정거장 전"
+        android:padding="5dp"
+        android:textSize="30sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/Remaining_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_toLeftOf="@id/arrive"
+        android:layout_below="@id/BusStop"
+        android:text="15분"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        />
+
+
+
+    <Button
+        android:id="@+id/arrive"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:inset="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:text="탑승"
+        android:textStyle="bold"
+        android:textSize="23sp"/>
+
+
+
+</RelativeLayout>

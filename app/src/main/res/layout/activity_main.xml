@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <!--destination_Search(메인화면 목적지 검색) -->
+    <Button
+        android:id="@+id/btnDS"
+        android:layout_width="match_parent"
+        android:layout_height="157dp"
+        android:layout_margin="25dp"
+        android:text="@string/strDS"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/vitro"/>
+
+    <!-- 즐겨찾기 버튼 -->
+    <Button
+        android:id="@+id/btnStar"
+        android:layout_width="match_parent"
+        android:layout_height="157dp"
+        android:layout_margin="25dp"
+        android:text="@string/strStar"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/vitro"/>
+
+    <!-- 종료 -->
+    <Button
+        android:id="@+id/btnFinish"
+        android:layout_width="match_parent"
+        android:layout_height="157dp"
+        android:layout_margin="25dp"
+        android:text="@string/strFinish"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/vitro"/>
+
+</LinearLayout>
