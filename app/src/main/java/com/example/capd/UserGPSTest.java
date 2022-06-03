@@ -23,7 +23,7 @@ public class UserGPSTest extends AppCompatActivity {
 
     TextView gps_result;
     Button btn_get_user_location;
-    String x,y;
+    double x,y;
     UserGPS userGPS;
 
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
@@ -45,10 +45,10 @@ public class UserGPSTest extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userGPS = new UserGPS(UserGPSTest.this);
-                x = userGPS.getLatitude(); //위도
-                y = userGPS.getLongtitude(); //경도
+                x = userGPS.getLongitude(); //경도
+                y = userGPS.getLatitude(); //위도
 
-                gps_result.setText("위도 : " + x + ", " + "경도 : " + y);
+                gps_result.setText("경도 : " + x + ", " + "위도 : " + y);
             }
         });
 

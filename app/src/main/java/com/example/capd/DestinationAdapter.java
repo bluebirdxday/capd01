@@ -53,6 +53,7 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
                 context.startActivity(intent);
 ;            }
         });
+
     }
 
     @Override

@@ -15,7 +15,6 @@ import com.example.capd.CoordinatesCalculate.GetCoordinatesRepo;
 // 목적지 검색 후 결과 리스트 액티비티
 public class DestinationListActivity extends AppCompatActivity {
 
-    Intent intent;
     String destination;
 
     RecyclerView recyclerView;
@@ -26,7 +25,7 @@ public class DestinationListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.destination_list);
 
-        intent = new Intent(this.getIntent());
+        Intent intent = new Intent(this.getIntent());
         destination = intent.getStringExtra("destination");
 
 

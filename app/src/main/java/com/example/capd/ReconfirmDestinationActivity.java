@@ -26,7 +26,7 @@ public class ReconfirmDestinationActivity extends AppCompatActivity {
         no_btn = (Button)findViewById(R.id.no_btn);
         question = (TextView)findViewById(R.id.question);
 
-        Intent intent = getIntent();
+        Intent intent = new Intent(this.getIntent());
         destination = intent.getStringExtra("destination");
         latitude = intent.getStringExtra("latitude");
         longitude = intent.getStringExtra("longitude");
@@ -35,6 +35,7 @@ public class ReconfirmDestinationActivity extends AppCompatActivity {
 
         question.setText("목적지를 " + destination + "로 설정하시겠습니까?");
 
+
         question.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,40 +43,61 @@ public class ReconfirmDestinationActivity extends AppCompatActivity {
             }
         });
 
-        yes_btn.setOnClickListener(new View.OnClickListener() {
+
+        Button.OnClickListener onClickListener = new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
 
-                Intent intent2 = new Intent(getApplicationContext(), DestinationSearchActivity.class); //DestinationSearchActivity는 임의로 지정한 것이므로 추후에 버스리스트 액티비티로 수정 필요
-                intent2.putExtra("destination", destination);
-                intent2.putExtra("latitude", latitude);
-                intent2.putExtra("longitude", longitude);
-                startActivity(intent2);
-            }
-        });
+                switch(v.getId()){
+                    case R.id.yes_btn :
+                        changeIntent();
+                        break;
+                    case R.id.no_btn :
+                        finish();
+                        break;
+                }
 
-        yes_btn.setOnLongClickListener(new View.OnLongClickListener() {
+            }
+        };
+
+
+        Button.OnLongClickListener onLongClickListener = new Button.OnLongClickListener(){
             @Override
             public boolean onLongClick(View v) {
-                tts.startTTS(yes_btn.getText().toString());
+                switch(v.getId()){
+                    case R.id.yes_btn :
+                        tts.startTTS(yes_btn.getText().toString());
+                        break;
+                    case R.id.no_btn :
+                        tts.startTTS(no_btn.getText().toString());
+                        break;
+                }
                 return true;
             }
-        });
+        };
+
+        yes_btn.setOnClickListener(onClickListener);
+        no_btn.setOnClickListener(onClickListener);
+
+        yes_btn.setOnLongClickListener(onLongClickListener);
+        no_btn.setOnLongClickListener(onLongClickListener);
+
+    }
 
 
-        no_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+    public void changeIntent(){
 
-        no_btn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                tts.startTTS(no_btn.getText().toString());
-                return true;
-            }
-        });
+        Intent intent = new Intent(getApplicationContext(), NavigationActivity.class); //DestinationSearchActivity는 임의로 지정한 것이므로 추후에 버스리스트 액티비티로 수정 필요
+        intent.putExtra("destination", destination);
+        intent.putExtra("latitude", latitude);
+        intent.putExtra("longitude", longitude);
+        startActivity(intent);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        tts.close();
+        super.onDestroy();
     }
 }

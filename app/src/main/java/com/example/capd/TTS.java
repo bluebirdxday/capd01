@@ -1,6 +1,8 @@
 package com.example.capd;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 
@@ -10,6 +12,10 @@ import java.util.Locale;
 
 public class TTS {
 
+    float speed;
+    SharedPreferences preferences;
+
+
     public Context mContext;
     public TextToSpeech tts;
 
@@ -17,6 +23,8 @@ public class TTS {
     public TTS(Context context){
         this.mContext = context;
         initTTS(this.mContext);
+        preferences = context.getSharedPreferences("speed", Activity.MODE_PRIVATE);
+        speed = preferences.getFloat("speed_number", 1.0f);
     }
 
 
@@ -37,7 +45,7 @@ public class TTS {
     }
 
     public void startTTS(String text){
-        startTTS(text, 1.0f, 1.0f, false);
+        startTTS(text, speed, 1.0f, false);
     }
 
     // tts 실행
@@ -49,7 +57,7 @@ public class TTS {
 
         tts.setPitch(pitch);
         tts.setSpeechRate(speed);
-        tts.speak(text, TextToSpeech.QUEUE_ADD, null);
+        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 
         if (is_auto_close){
             close();

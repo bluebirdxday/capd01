@@ -41,6 +41,7 @@ public class DestinationSearchActivity extends AppCompatActivity {
         edit_destination = (EditText) findViewById(R.id.edit_destination);
 
 
+
         if (Build.VERSION.SDK_INT >= 23) {
             // 퍼미션 체크
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET,
@@ -48,8 +49,6 @@ public class DestinationSearchActivity extends AppCompatActivity {
         }
 
         tts = new TTS(this);
-        tts.initTTS(this);
-
 
         //음성 인식을 위해 intent 객체 생성
         intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -57,49 +56,68 @@ public class DestinationSearchActivity extends AppCompatActivity {
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ko-KR");
 
 
-        //음성 검색
-        search_voice_btn.setOnClickListener(new View.OnClickListener() {
+        Button.OnClickListener onClickListener = new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                speechRecognizer = SpeechRecognizer.createSpeechRecognizer(DestinationSearchActivity.this);
-                speechRecognizer.setRecognitionListener(listener);
-                speechRecognizer.startListening(intent);
-            }
-        });
 
-        search_voice_btn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                tts.startTTS(search_voice_btn.getText().toString(), 1.5f, 1.0f, false);
-                return true;
-            }
-        });
-
-
-        //텍스트 검색
-        search_text_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                destination = edit_destination.getText().toString().trim();
-                if (destination == null || destination.isEmpty()){
-                    tts.startTTS("목적지를 입력하세요");
-                }else{
-                    tts.startTTS(destination);
-                    nextActivity();
+                switch(v.getId()){
+                    case R.id.search_text_btn :
+                        searchByText();
+                        break;
+                    case R.id.search_voice_btn :
+                        searchByVoice();
+                        break;
                 }
 
             }
-        });
+        };
 
-        search_text_btn.setOnLongClickListener(new View.OnLongClickListener() {
+        Button.OnLongClickListener onLongClickListener = new Button.OnLongClickListener(){
             @Override
             public boolean onLongClick(View v) {
-                tts.startTTS(search_text_btn.getText().toString(), 1.5f, 1.0f, false);
+                switch(v.getId()){
+                    case R.id.search_text_btn :
+                        tts.startTTS(search_text_btn.getText().toString());
+                        break;
+                    case R.id.search_voice_btn :
+                        tts.startTTS(search_voice_btn.getText().toString());
+                        break;
+                }
                 return true;
             }
-        });
+        };
+
+
+
+        search_text_btn.setOnClickListener(onClickListener);
+        search_voice_btn.setOnClickListener(onClickListener);
+
+        search_text_btn.setOnLongClickListener(onLongClickListener);
+        search_voice_btn.setOnLongClickListener(onLongClickListener);
+
 
     }
+
+    //텍스트로 검색
+    public void searchByText(){
+
+        destination = edit_destination.getText().toString().trim();
+        if (destination == null || destination.isEmpty()){
+            tts.startTTS("목적지를 입력해주세요");
+        }else{
+            nextActivity();
+        }
+
+    }
+
+    //음성으로 검색
+    public void searchByVoice(){
+
+        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(DestinationSearchActivity.this);
+        speechRecognizer.setRecognitionListener(listener);
+        speechRecognizer.startListening(intent);
+    }
+
 
 
     private RecognitionListener listener = new RecognitionListener() {
@@ -189,10 +207,17 @@ public class DestinationSearchActivity extends AppCompatActivity {
         }
     };
 
+
     public void nextActivity(){
         Intent intent2 = new Intent(DestinationSearchActivity.this, DestinationListActivity.class);
         intent2.putExtra("destination", destination);
         startActivity(intent2);
+    }
+
+    @Override
+    protected void onDestroy() {
+        tts.close();
+        super.onDestroy();
     }
 
 

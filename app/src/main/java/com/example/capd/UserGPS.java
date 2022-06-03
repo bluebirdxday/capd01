@@ -21,8 +21,8 @@ public class UserGPS extends Service implements LocationListener {
 
     Context context;
     Location location;
-    String latitude;
-    String longitude;
+    double longitude;
+    double latitude;
 
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;
     private static final long MIN_TIME_BW_UPDATES = 1000*60*1;
@@ -62,8 +62,8 @@ public class UserGPS extends Service implements LocationListener {
                         location =
                                 locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                         if (location != null) {
-                            latitude = Double.toString(location.getLatitude());
-                            longitude = Double.toString(location.getLongitude());
+                            longitude = location.getLongitude();
+                            latitude = location.getLatitude();
                         }
                     }
                 }
@@ -76,8 +76,8 @@ public class UserGPS extends Service implements LocationListener {
                             location =
                                     locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                             if (location != null){
-                                latitude = Double.toString(location.getLatitude());
-                                longitude = Double.toString(location.getLongitude());
+                                longitude = location.getLongitude();
+                                latitude = location.getLatitude();
                             }
                         }
                     }
@@ -90,18 +90,18 @@ public class UserGPS extends Service implements LocationListener {
     }
 
 
-    public String getLatitude() {
+    public double getLongitude(){
         if (location != null){
-            latitude = Double.toString(location.getLatitude());
-        }
-        return latitude;
-    }
-
-    public String getLongtitude(){
-        if (location != null){
-            longitude = Double.toString(location.getLongitude());
+            longitude = location.getLongitude();
         }
         return longitude;
+    }
+
+    public double getLatitude() {
+        if (location != null){
+            latitude = location.getLatitude();
+        }
+        return latitude;
     }
 
     @Nullable
