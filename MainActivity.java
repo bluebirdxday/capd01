@@ -1,4 +1,4 @@
-package com.example.dbtest2;
+package com.example.dbtest3;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -21,15 +21,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button btn_Insert;
     Button btn_Select;
-    EditText edit_ID;
-    EditText edit_Name;
-    TextView text_ID;
-    TextView text_Name;
+    EditText edit_Depart;
+    EditText edit_Arrival;
+    TextView text_Depart;
+    TextView text_Arrival;
 
     long nowIndex;
-    String ID;
-    String name;
-    String sort = "userid";
+    String depart;
+    String arrival;
+    String sort = "depart";
 
     ArrayAdapter<String> arrayAdapter;
 
@@ -45,10 +45,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_Insert.setOnClickListener(this);
         btn_Select = (Button) findViewById(R.id.btn_select);
         btn_Select.setOnClickListener(this);
-        edit_ID = (EditText) findViewById(R.id.edit_id);
-        edit_Name = (EditText) findViewById(R.id.edit_name);
-        text_ID = (TextView) findViewById(R.id.text_id);
-        text_Name = (TextView) findViewById(R.id.text_name);
+        edit_Depart = (EditText) findViewById(R.id.edit_depart);
+        edit_Arrival = (EditText) findViewById(R.id.edit_arrival);
+        text_Depart = (TextView) findViewById(R.id.text_depart);
+        text_Arrival = (TextView) findViewById(R.id.text_arrival);
 
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
         ListView listView = (ListView) findViewById(R.id.db_list_view);
@@ -64,14 +64,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void setInsertMode(){
-        edit_ID.setText("");
-        edit_Name.setText("");
+        edit_Depart.setText("");
+        edit_Arrival.setText("");
         btn_Insert.setEnabled(true);
     }
 
     private AdapterView.OnItemClickListener onClickListener = new AdapterView.OnItemClickListener() {
         @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        public void onItemClick(AdapterView<?> parent, View view, int position, long depart) {
             Log.e("On Click", "position = " + position);
             nowIndex = Long.parseLong(arrayIndex.get(position));
             Log.e("On Click", "nowIndex = " + nowIndex);
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private AdapterView.OnItemLongClickListener longClickListener = new AdapterView.OnItemLongClickListener() {
         @Override
-        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long depart) {
             Log.e("Long Click", "position = " + position);
             nowIndex = Long.parseLong(arrayIndex.get(position));
             Log.e("Long Click", "nowIndex = " + nowIndex);
@@ -126,16 +126,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         while(iCursor.moveToNext()){
 
             int int_id = iCursor.getColumnIndex("_id");
-            int int_userid = iCursor.getColumnIndex("userid");
-            int int_name = iCursor.getColumnIndex("name");
+            int int_depart = iCursor.getColumnIndex("depart");
+            int int_arrival = iCursor.getColumnIndex("arrival");
 
             String tempIndex = iCursor.getString(int_id);
-            String tempID = iCursor.getString(int_userid);
-            tempID = setTextLength(tempID,10);
-            String tempName = iCursor.getString(int_name);
-            tempName = setTextLength(tempName,10);
+            String tempDepart = iCursor.getString(int_depart);
+            tempDepart = setTextLength(tempDepart,10);
+            String tempArrival = iCursor.getString(int_arrival);
+            tempArrival = setTextLength(tempArrival,10);
 
-            String Result = tempID + tempName;
+            String Result = tempDepart + tempArrival;
             arrayData.add(Result);
             arrayIndex.add(tempIndex);
         }
@@ -158,14 +158,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_insert:
-                ID = edit_ID.getText().toString();
-                name = edit_Name.getText().toString();
+                depart = edit_Depart.getText().toString();
+                arrival = edit_Arrival.getText().toString();
                 mDbOpenHelper.open();
-                mDbOpenHelper.insertColumn(ID, name);
+                mDbOpenHelper.insertColumn(depart, arrival);
                 showDatabase(sort);
                 setInsertMode();
-                edit_ID.requestFocus();
-                edit_ID.setCursorVisible(true);
+                edit_Depart.requestFocus();
+                edit_Depart.setCursorVisible(true);
                 break;
 
             case R.id.btn_select:
