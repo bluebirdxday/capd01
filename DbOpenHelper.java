@@ -1,4 +1,4 @@
-package com.example.dbtest2;
+package com.example.dbtest3;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -53,10 +53,10 @@ public class DbOpenHelper {
     }
 
     // Insert DB
-    public long insertColumn(String userid, String name){
+    public long insertColumn(String depart, String arrival){
         ContentValues values = new ContentValues();
-        values.put(DataBases.CreateDB.USERID, userid);
-        values.put(DataBases.CreateDB.NAME, name);
+        values.put(DataBases.CreateDB.DEPART, depart);
+        values.put(DataBases.CreateDB.ARRIVAL, arrival);
         return mDB.insert(DataBases.CreateDB._TABLENAME0, null, values);
     }
 
