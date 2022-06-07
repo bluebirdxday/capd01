@@ -17,7 +17,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="3-1"
-            android:textSize="80dp">
+            android:textSize="80dp"
+            android:layout_margin="10dp"
+            android:textStyle="bold">
 
         </TextView>
 
@@ -30,11 +32,11 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@color/red"
+            android:backgroundTint="@color/red"
             android:fontFamily="@font/vitro"
             android:text="음성 안내"
-            android:textColor="@color/black"
-            android:textSize="45dp"
+            android:textColor="@color/white"
+            android:textSize="40dp"
             android:textStyle="bold"
             app:cornerRadius="10dp">
 
@@ -48,10 +50,13 @@
         android:layout_weight="1">
 
         <TextView
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="이번 정류장"
+            android:text="이번\n정류장"
+            android:textAlignment="center"
+            android:textStyle="bold"
             android:textSize="45dp"
             android:textColor="@color/white"
             android:background="@color/blue">
@@ -59,11 +64,14 @@
 
         <!-- 이번 정류장-->
         <TextView
+            android:layout_weight="1"
             android:id="@+id/thisBusStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="전주대학교"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="ex전주대학교"
             android:textSize="40dp">
         </TextView>
 
@@ -76,22 +84,26 @@
         android:layout_weight="1">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="157dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="다음 정류장"
-            android:textSize="45dp"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:text="다음\n정류장"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:background="@color/blue">
-        </TextView>
+            android:textSize="45dp"
+            android:textStyle="bold"></TextView>
 
         <!-- 다음 정류장-->
         <TextView
+            android:layout_weight="1"
             android:id="@+id/NextBusStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="전주사대부고"
+            android:text="ex전주사대부고"
+            android:textStyle="bold"
             android:textSize="40dp">
         </TextView>
     </LinearLayout>
@@ -103,21 +115,27 @@
         android:layout_weight="1">
 
         <TextView
-            android:layout_width="212dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@color/blue"
-            android:text="다다음 정류장"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="다다음\n정류장"
             android:textColor="@color/white"
             android:textSize="45dp"></TextView>
 
         <!-- 다다음 정류장-->
         <TextView
+            android:layout_weight="1"
             android:id="@+id/NNextStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="호남제일고"
+            android:text="ex호남제일고"
+            android:textStyle="bold"
+            android:textAlignment="center"
             android:textSize="40dp">
         </TextView>
     </LinearLayout>

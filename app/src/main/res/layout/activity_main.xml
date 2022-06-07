@@ -11,9 +11,22 @@
     <Button
         android:id="@+id/btnDS"
         android:layout_width="match_parent"
-        android:layout_height="157dp"
-        android:layout_margin="25dp"
+        android:layout_height="130dp"
+        android:layout_margin="10dp"
         android:text="@string/strDS"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/vitro"/>
+
+    <!-- 음성 조절 -->
+    <Button
+        android:id="@+id/btnVioceSpeed"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_margin="10dp"
+        android:text="음성 속도 조절"
         android:textColor="@color/black"
         android:textSize="40dp"
         android:textStyle="bold"
@@ -24,8 +37,8 @@
     <Button
         android:id="@+id/btnStar"
         android:layout_width="match_parent"
-        android:layout_height="157dp"
-        android:layout_margin="25dp"
+        android:layout_height="130dp"
+        android:layout_margin="10dp"
         android:text="@string/strStar"
         android:textColor="@color/black"
         android:textSize="40dp"
@@ -37,8 +50,8 @@
     <Button
         android:id="@+id/btnFinish"
         android:layout_width="match_parent"
-        android:layout_height="157dp"
-        android:layout_margin="25dp"
+        android:layout_height="130dp"
+        android:layout_margin="10dp"
         android:text="@string/strFinish"
         android:textColor="@color/black"
         android:textSize="40dp"
