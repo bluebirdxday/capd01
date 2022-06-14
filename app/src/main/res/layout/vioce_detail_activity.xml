@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical">
 
     <!-- 도움말 -->
     <Button
@@ -14,25 +14,63 @@
         android:layout_height="130dp"
         android:layout_margin="10dp"
         android:backgroundTint="@color/blue"
+        android:fontFamily="@font/slei"
         android:text="도움말"
         android:textColor="@color/white"
         android:textSize="40dp"
         android:textStyle="bold"
-        app:cornerRadius="10dp"
-        android:fontFamily="@font/vitro"/>
+        app:cornerRadius="10dp" />
 
     <!-- 음성 조절 -->
-    <TextView
-        android:id="@+id/VoiceSpeed"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="10dp"
-        android:text="@string/Voice"
-        android:textColor="@color/black"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        app:cornerRadius="10dp"
-        android:fontFamily="@font/vitro"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="음성 속도"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/slei">
+        </TextView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/VoiceSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/vitro"
+                android:text="2.0"
+                android:textColor="@color/black"
+                android:textSize="150dp"
+                android:textStyle="bold"
+                app:cornerRadius="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toRightOf="@id/VoiceSpeed"
+                android:text="배속"
+                android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/slei"></TextView>
+        </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,25 +78,23 @@
 
         <Button
             android:id="@+id/btndown"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:layout_weight="1"
             android:text="-"
             android:textSize="40dp"
-            android:textStyle="bold">
-        </Button>
+            android:textStyle="bold"></Button>
 
         <Button
             android:id="@+id/btnup"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:layout_weight="1"
             android:text="+"
             android:textSize="40dp"
-            android:textStyle="bold">
-        </Button>
+            android:textStyle="bold"></Button>
     </LinearLayout>
 
     <!-- 설정 -->
@@ -68,11 +104,11 @@
         android:layout_height="130dp"
         android:layout_margin="10dp"
         android:backgroundTint="@color/black"
+        android:fontFamily="@font/slei"
         android:text="설정"
         android:textColor="@color/white"
         android:textSize="40dp"
         android:textStyle="bold"
-        app:cornerRadius="10dp"
-        android:fontFamily="@font/vitro"/>
+        app:cornerRadius="10dp" />
 
 </LinearLayout>

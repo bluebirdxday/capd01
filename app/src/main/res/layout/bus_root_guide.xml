@@ -8,22 +8,31 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#CDDC39">
 
         <!-- 탑승 노선 번호 -->
 
         <!-- 음성 안내 -->
         <TextView
+            android:id="@+id/Bording_BusNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/vitro"
             android:text="3-1"
-            android:textSize="80dp"
-            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:textSize="60dp"
             android:textStyle="bold">
 
         </TextView>
 
+        <!-- 음성 안내 버튼-->
         <Button
+            android:id="@+id/btnvoice_root"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -31,9 +40,9 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/red"
-            android:fontFamily="@font/vitro"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#FF5722"
+            android:fontFamily="@font/slei"
             android:text="음성 안내"
             android:textColor="@color/white"
             android:textSize="40dp"
@@ -54,12 +63,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginStart="10dp"
             android:text="이번\n정류장"
             android:textAlignment="center"
-            android:textStyle="bold"
             android:textSize="45dp"
             android:textColor="@color/white"
-            android:background="@color/blue">
+            android:background="@drawable/my_gradient_drawable"
+            android:fontFamily="@font/slei">
         </TextView>
 
         <!-- 이번 정류장-->
@@ -69,31 +79,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textStyle="bold"
+            android:layout_marginEnd="10dp"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:text="ex전주대학교"
-            android:textSize="40dp">
+            android:textSize="40dp"
+            android:fontFamily="@font/slei">
         </TextView>
 
     </LinearLayout>
+    <ImageView
+        android:src="@drawable/line"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_weight="1"
+
+        >
 
         <TextView
-            android:layout_width="157dp"
+            android:layout_width="139dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:background="@color/blue"
+            android:background="@drawable/my_gradient_drawable"
+            android:fontFamily="@font/slei"
             android:text="다음\n정류장"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="45dp"
-            android:textStyle="bold"></TextView>
+            ></TextView>
 
         <!-- 다음 정류장-->
         <TextView
@@ -102,11 +125,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
             android:text="ex전주사대부고"
-            android:textStyle="bold"
-            android:textSize="40dp">
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:fontFamily="@font/slei">
         </TextView>
+
     </LinearLayout>
+    <ImageView
+        android:src="@drawable/line"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+    출처: https://selfish-developer.com/entry/안드로이드-선-추가하기 [아는 개발자:티스토리]
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -119,12 +153,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@color/blue"
-            android:textStyle="bold"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/my_gradient_drawable"
             android:textAlignment="center"
             android:text="다다음\n정류장"
             android:textColor="@color/white"
-            android:textSize="45dp"></TextView>
+            android:textSize="45dp"
+            android:fontFamily="@font/slei"></TextView>
 
         <!-- 다다음 정류장-->
         <TextView
@@ -133,12 +168,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
             android:text="ex호남제일고"
-            android:textStyle="bold"
             android:textAlignment="center"
-            android:textSize="40dp">
+            android:textSize="40dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/slei">
         </TextView>
     </LinearLayout>
+
+    <ImageView
+        android:src="@drawable/line"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -147,38 +192,41 @@
 
         <!-- 정류장 알림 -->
         <Button
+            android:id="@+id/btnVioce_busstop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:fontFamily="@font/vitro"
+            android:backgroundTint="#FFC107"
+            android:fontFamily="@font/slei"
             android:text="정류장알림"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="40dp"
-            android:textStyle="bold"
             app:cornerRadius="10dp">
 
         </Button>
 
         <!-- 하차 -->
         <Button
+            android:id="@+id/btnDestination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="20dp"
-            app:cornerRadius="10dp"
+            android:backgroundTint="#FF5722"
+            android:fontFamily="@font/slei"
             android:text="하차"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="40dp"
             android:textStyle="bold"
-            android:fontFamily="@font/vitro">
+            app:cornerRadius="10dp">
 
         </Button>
     </RelativeLayout>

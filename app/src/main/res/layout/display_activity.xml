@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 탑승할 버스 번호 전광판-->
+    <TextView
+        android:id="@+id/Bording_BusNum"
+        android:layout_width="match_parent"
+        android:layout_height="632dp"
+        android:fontFamily="@font/vitro"
+        android:gravity="center_horizontal|center_vertical"
+        android:rotation="-90"
+        android:text="4000"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="150dp"></TextView>
+
+    <Button
+        android:id="@+id/btndisplay_back"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:fontFamily="@font/slei"
+        android:insetLeft="10dp"
+        android:insetRight="10dp"
+        android:text="뒤로가기"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:cornerRadius="10dp"></Button>
+
+</LinearLayout>

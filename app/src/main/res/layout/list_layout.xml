@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- 버스 번호 -->
     <TextView
@@ -14,9 +14,9 @@
         android:gravity="center"
         android:text="4000"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textStyle="bold" />
 
     <!-- 남은 버스정류장 -->
     <TextView
@@ -24,38 +24,51 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_toLeftOf="@id/arrive"
-        android:text="6정거장 전"
+        android:fontFamily="@font/slei"
         android:padding="5dp"
-        android:textSize="30sp"
-        android:textColor="@color/black"/>
+        android:text="6정거장 전"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/Remaining_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:layout_toLeftOf="@id/arrive"
         android:layout_below="@id/BusStop"
-        android:text="15분"
+        android:layout_marginEnd="10dp"
+        android:layout_toLeftOf="@id/arrive"
         android:padding="5dp"
+        android:text="15분"
         android:textColor="@color/black"
-        />
-
+        android:textSize="30sp"
+        android:fontFamily="@font/slei"/>
 
 
     <Button
         android:id="@+id/arrive"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:inset="10dp"
-        android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:inset="10dp"
         android:text="탑승"
-        android:textStyle="bold"
-        android:textSize="23sp"/>
+        android:textSize="23sp"
+        android:textStyle="bold" />
 
+    <ImageView
+        android:src="@drawable/line"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 
 </RelativeLayout>

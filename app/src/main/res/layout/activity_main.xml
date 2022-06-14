@@ -13,12 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_margin="10dp"
+        android:drawableLeft="@drawable/icon_search"
+        android:fontFamily="@font/slei"
         android:text="@string/strDS"
         android:textColor="@color/black"
         android:textSize="40dp"
-        android:textStyle="bold"
-        app:cornerRadius="10dp"
-        android:fontFamily="@font/vitro"/>
+        app:cornerRadius="10dp" />
 
     <!-- 음성 조절 -->
     <Button
@@ -26,12 +26,12 @@
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_margin="10dp"
+        android:drawableLeft="@drawable/voice_icon"
         android:text="음성 속도 조절"
         android:textColor="@color/black"
         android:textSize="40dp"
-        android:textStyle="bold"
         app:cornerRadius="10dp"
-        android:fontFamily="@font/vitro"/>
+        android:fontFamily="@font/slei"/>
 
     <!-- 즐겨찾기 버튼 -->
     <Button
@@ -39,12 +39,12 @@
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_margin="10dp"
+        android:drawableLeft="@drawable/star_icon"
         android:text="@string/strStar"
         android:textColor="@color/black"
         android:textSize="40dp"
-        android:textStyle="bold"
         app:cornerRadius="10dp"
-        android:fontFamily="@font/vitro"/>
+        android:fontFamily="@font/slei"/>
 
     <!-- 종료 -->
     <Button
@@ -55,8 +55,7 @@
         android:text="@string/strFinish"
         android:textColor="@color/black"
         android:textSize="40dp"
-        android:textStyle="bold"
         app:cornerRadius="10dp"
-        android:fontFamily="@font/vitro"/>
+        android:fontFamily="@font/slei"/>
 
 </LinearLayout>

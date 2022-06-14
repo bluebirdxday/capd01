@@ -6,18 +6,26 @@
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1345" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1345" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.23" />
+        <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/line.xml" value="0.215" />
+        <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/my_gradient_drawable.xml" value="0.1415" />
+        <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/shap.xml" value="0.215" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/font/font.xml" value="0.17864583333333334" />
-        <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout-land/display_activity.xml" value="0.18432574430823118" />
+        <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/bus_detail_activity.xml" value="0.2" />
-        <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/bus_root_guide.xml" value="0.1574074074074074" />
+        <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/bus_root_guide.xml" value="0.176" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/buslist_activity.xml" value="0.264" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/dfdf.xml" value="0.14427083333333332" />
+        <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/display_activity.xml" value="0.21927083333333333" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/intro_activity.xml" value="0.1" />
+        <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/line_sample.xml" value="0.21510416666666668" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/list_layout.xml" value="0.264" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/navigation.xml" value="0.14427083333333332" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/navigation_activity.xml" value="0.2" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/search_activity.xml" value="0.176" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/starlist_activity.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/starlist_datail.xml" value="0.21927083333333333" />
+        <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/test1.xml" value="0.21927083333333333" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/touch_screen.xml" value="0.14427083333333332" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout/vioce_detail_activity.xml" value="0.2128623188405797" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1655" />
