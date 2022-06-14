@@ -34,16 +34,20 @@ public class MainActivity extends AppCompatActivity {
     String realBus_data;
     String busStation_data; // 버스 번호 데이터
     TextView busStation_text;
-    // ListView busStation_text;
-    // IconTextListAdapter adapter;
-    String brtStdid_info="305001258"; //  brtStdid 데이터 가져오기 (상세페이지에서)
+    String brtStdid_info="305001258"; //  brtStdid 버스번호ID 데이터 가져오기 (상세페이지에서)
     String busStop = "306101035"; // 정류장id 받아오기 (상세페이지에서)
-    String brtId_info = "970"; // 정류장id 받아오기 (상세페이지에서)
-    String rStop_info = "38"; // 남은 정류장 RStop 받아오기 (상세페이지에서)
-    String rStop_data="";
+    String brtId_info = "970"; // 버스 번호 받아오기 (상세페이지에서)
+    String bidNo_info = "305041401"; // 버스 ID 받아오기 (상세페이지에서)
+    String bidNo_data = "";
     String[] busStopArr = new String[100];
     int i=0;
     int flag=0;
+    String busStop1 = "";
+    String busStop2 = "";
+    String busStop3 = "";
+    TextView busStop_1;
+    TextView busStop_2;
+    TextView busStop_3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,28 +63,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        realBus_text = (TextView)findViewById(R.id.rStop);
-        // busStation_text = (ListView) findViewById(R.id.busStation);
-        // adapter = new IconTextListAdapter(this);
         busStation_text = (TextView)findViewById(R.id.busStation);
+        busStop_1 = findViewById(R.id.busStop_1);
+        busStop_2 = findViewById(R.id.busStop_2);
+        busStop_3 = findViewById(R.id.busStop_3);
 
         new Thread(new Runnable() {
             @Override
             public void run() {
                 // TODO Auto-generated method stub
-                //realBus_data = getXmlData_busInfo(); // 남은 정류장수 api 데이터
                 busStation_data = getXmlData_nextBusStop();
 
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         //TODO Auto-generated method stub
-                        realBus_text.setText(realBus_data);
+                        //realBus_text.setText(realBus_data);
                         busStation_text.setText(busStation_data);
+                        busStop_1.setText(busStop1);
+                        busStop_2.setText(busStop2);
+                        busStop_3.setText(busStop3);
                     }
                 });
             }
         }).start();
+
+
+
     }
 
     private String getXmlData_nextBusStop() {
@@ -100,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             String tag;
             String nextBusStop="";
             String nextBus_data="";
-            String brtStdid_data="";
+            String brtId_data="";
 
             xpp.next(); // 파일 탐색 시작
             int eventType = xpp.getEventType();
@@ -113,33 +122,34 @@ public class MainActivity extends AppCompatActivity {
 
                     case XmlPullParser.START_TAG:
                         tag = xpp.getName(); // 태그 이름 가져오기
-
-                        if(tag.equals("brtStdid")){
+                        // 버스 번호 가져오기
+                        if(tag.equals("brtId")){
                             xpp.next();
-                            if(xpp.getText().equals(brtStdid_info)) {
-                                brtStdid_data = brtStdid_info;
+                            if(xpp.getText().equals(brtId_info)) {
+                                brtId_data = brtId_info;
                                 //buffer.append(nextBusStop);
                                 //buffer.append("\n");
                             }
                         }
 
-                        if(tag.equals("RStop")){
+                        if(tag.equals("bidNo")){
                             xpp.next();
-                            if(xpp.getText().equals(rStop_info)) {
-                                rStop_data = rStop_info;
+                            if(xpp.getText().equals(bidNo_info)) {
+                                bidNo_data = bidNo_info;
                                 //buffer.append(nextBusStop);
                                 //buffer.append("\n");
                             }
                         }
 
+                        // 지나간 정류장
                         if(tag.equals("viaStopname")) {
                             xpp.next();
                             // buffer.append(xpp.getText());
                             nextBusStop = xpp.getText();
                             //Log.i("nextBusStop", nextBusStop);
-                            if(brtStdid_data.equals(brtStdid_info) && rStop_data.equals(rStop_info)) {
+                            if(brtId_data.equals(brtId_info) && bidNo_data.equals(bidNo_info)) {
                                 Log.i("nextBusStop", nextBusStop);
-                                nextBus_data = getXmlData_busStation(nextBusStop);
+                                nextBus_data = getXmlData_busStation1(nextBusStop);
                                 buffer.append(nextBus_data);
 
                             }
@@ -166,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
         return buffer.toString();
     }
 
-    private String getXmlData_busStation(String nextBusStop) {
+    private String getXmlData_busStation1(String nextBusStop) {
         StringBuffer buffer = new StringBuffer();
 
 
@@ -217,23 +227,24 @@ public class MainActivity extends AppCompatActivity {
             }
             for(int check=0; check<busStopArr.length; check++){
                 if(busStopArr[check].equals(nextBusStop)){
-                    buffer.append("이번정류장 : " + busStopArr[check]);
-                    buffer.append("\n");
-                    buffer.append("다음정류장 : " + busStopArr[check+1]);
-                    buffer.append("\n");
-                    buffer.append("다다음정류장 : " + busStopArr[check+2]);
-                    buffer.append("\n");
+                    //buffer.append("이번정류장 : " + busStopArr[check] + "\n");
+                    //buffer.append("다음정류장 : " + busStopArr[check+1] + "\n");
+                    //buffer.append("다다음정류장 : " + busStopArr[check+2] + "\n");
+
+                    busStop1 = "이번정류장 : " + busStopArr[check] + "\n";
+                    busStop2 = "다음정류장 : " + busStopArr[check+1] + "\n";
+                    busStop3 = "다다음정류장 : " + busStopArr[check+2] + "\n";
                     Log.i("check:", busStopArr[check]);
                     break;
                 }
             }
 
+
+
         } catch(Exception e) {
 
         }
-        //buffer.append("파싱 끝\n");
-
-
         return buffer.toString(); // 문자열 객체 반환
     }
+
 }

@@ -23,8 +23,16 @@ public class Rtime extends AppCompatActivity {
     String realBus_data;
     String brtStdid_info="305001577"; //  brtStdid 데이터 가져오기 (상세페이지에서)
     String busStop = "306101035"; // 정류장id 받아오기 (상세페이지에서)
-    String brtId_info = "970"; // 정류장id 받아오기 (상세페이지에서)
-    String rStop_info = "38"; // 남은 정류장 RStop 받아오기 (상세페이지에서)
+    String brtId_info = "970"; // 버스번호 받아오기 (상세페이지에서)
+    //String rStop_info = "5"; // 남은 정류장 RStop 받아오기 (상세페이지에서)
+    String busId_info = "305041401";
+    String busId_data = "";
+    String busNum;
+    String reStop;
+    String reTime;
+    TextView busNum_text;
+    TextView reStop_text;
+    TextView reTime_text;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +40,9 @@ public class Rtime extends AppCompatActivity {
         setContentView(R.layout.rtime);
 
         realBus_text = (TextView)findViewById(R.id.rStop);
+        busNum_text = (TextView) findViewById(R.id.busNum_text);
+        reStop_text = (TextView) findViewById(R.id.reStop_text);
+        reTime_text = (TextView) findViewById(R.id.reTime_text);
 
         new Thread(new Runnable() {
             @Override
@@ -44,6 +55,10 @@ public class Rtime extends AppCompatActivity {
                     public void run() {
                         //TODO Auto-generated method stub
                         realBus_text.setText(realBus_data);
+                        busNum_text.setText(busNum);
+                        reStop_text.setText(reStop);
+                        reTime_text.setText(reTime);
+
                     }
                 });
             }
@@ -115,11 +130,17 @@ public class Rtime extends AppCompatActivity {
 
                         }
 
+                        if(tag.equals("bidNo")){
+                            xpp.next();
+                            busId_data = xpp.getText();
+
+                        }
+
                         // 노선 ID
                         if(tag.equals("brtId")) {
                             xpp.next();
-                            if(xpp.getText().equals(brtId_info) && rStop_info.equals(rStop)) {
-                                buffer.append("버스 번호 : ");
+                            if(xpp.getText().equals(brtId_info) && busId_info.equals(busId_data)) {
+                                /* buffer.append("버스 번호 : ");
                                 buffer.append(brtId_info);
                                 buffer.append("\n");
                                 buffer.append("남은 정류장 : ");
@@ -130,7 +151,12 @@ public class Rtime extends AppCompatActivity {
                                 rTime = Integer.toString(time);
                                 buffer.append(rTime);
                                 buffer.append("분");
-                                //buffer.append(xpp.getText());
+                                //buffer.append(xpp.getText()); */
+
+                                rTime = Integer.toString(time);
+                                busNum = "버스 번호 : " + brtId_info + "\n";
+                                reStop = "남은 정류장 : " + rStop + "\n";
+                                reTime = "남은 시간 : " + rTime + "분\n";
                             }
                         }
                         Log.i("buffer", buffer.toString());
