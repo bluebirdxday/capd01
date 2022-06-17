@@ -4,10 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1345" />
+        <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/button_background.xml" value="0.157" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1345" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.23" />
+        <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/ic_main_background.xml" value="0.23" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/line.xml" value="0.215" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/my_gradient_drawable.xml" value="0.1415" />
+        <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/round_corner.xml" value="0.23" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/shap.xml" value="0.215" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/font/font.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/cdi39/AndroidStudioProjects/MyApplication/app/src/main/res/layout-land/display_activity.xml" value="0.18432574430823118" />

@@ -9,7 +9,7 @@
 
     <!--destination_Search(메인화면 목적지 검색) -->
     <Button
-        android:id="@+id/btnDS"
+        android:id="@+id/btn_main_destination"
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_margin="10dp"
@@ -22,7 +22,7 @@
 
     <!-- 음성 조절 -->
     <Button
-        android:id="@+id/btnVioceSpeed"
+        android:id="@+id/btn_main_vioce_speed"
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_margin="10dp"
@@ -35,7 +35,7 @@
 
     <!-- 즐겨찾기 버튼 -->
     <Button
-        android:id="@+id/btnStar"
+        android:id="@+id/btn_main_star"
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_margin="10dp"
@@ -44,7 +44,7 @@
         android:textColor="@color/black"
         android:textSize="40dp"
         app:cornerRadius="10dp"
-        android:fontFamily="@font/slei"/>
+        android:fontFamily="@font/bm2" />
 
     <!-- 종료 -->
     <Button

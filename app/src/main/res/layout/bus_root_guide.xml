@@ -30,6 +30,7 @@
 
         </TextView>
 
+
         <!-- 음성 안내 버튼-->
         <Button
             android:id="@+id/btnvoice_root"
@@ -50,14 +51,16 @@
             app:cornerRadius="10dp">
 
         </Button>
+
+
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_weight="1">
-
+        android:layout_weight="1"
+        android:background="@drawable/round_corner">
         <TextView
             android:layout_weight="1"
             android:layout_width="wrap_content"
@@ -101,7 +104,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="1"
-
+        android:background="@drawable/round_corner"
         >
 
         <TextView
@@ -146,7 +149,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@drawable/round_corner">
 
         <TextView
             android:layout_weight="1"

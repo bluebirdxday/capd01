@@ -9,7 +9,7 @@
 
     <!-- 탑승할 버스 번호-->
     <TextView
-        android:id="@+id/Bording_BusNum"
+        android:id="@+id/detail_bording_BusNum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -23,7 +23,7 @@
 
     <!-- 남은 시간-->
     <TextView
-        android:id="@+id/time"
+        android:id="@+id/detail_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#424242"
@@ -33,7 +33,7 @@
 
     <!-- 남은 정거장 수-->
     <TextView
-        android:id="@+id/busstop"
+        android:id="@+id/detail_busstop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#424242"
@@ -42,7 +42,7 @@
         android:fontFamily="@font/slei"/>
     <!--탑승 -->
     <Button
-        android:id="@+id/btnboard"
+        android:id="@+id/btn_datail_board"
         android:layout_width="match_parent"
         android:layout_height="157dp"
         android:insetLeft="10dp"
@@ -55,7 +55,7 @@
         android:fontFamily="@font/slei"/>
     <!--전광판 -->
     <Button
-        android:id="@+id/btnDpNum"
+        android:id="@+id/btn_datail_display"
         android:layout_width="match_parent"
         android:layout_height="157dp"
         android:insetLeft="10dp"
@@ -68,7 +68,7 @@
         android:fontFamily="@font/slei"/>
     <!--뒤로가기 -->
     <Button
-        android:id="@+id/btnback"
+        android:id="@+id/btn_datail_back"
         android:layout_width="match_parent"
         android:layout_height="157dp"
         android:insetLeft="10dp"
