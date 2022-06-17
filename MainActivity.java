@@ -1,4 +1,4 @@
-package com.example.dbtest3;
+package com.example.test3;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "Main";
 
+    TTS tts;
     Button btn_Insert;
     Button btn_Select;
     EditText edit_Depart;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     long nowIndex;
     String depart;
     String arrival;
+
     String sort = "depart";
 
     ArrayAdapter<String> arrayAdapter;
@@ -56,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         listView.setOnItemClickListener(onClickListener);
         listView.setOnItemLongClickListener(longClickListener);
 
+        tts = new TTS(this);
+
         mDbOpenHelper = new DbOpenHelper(this);
         mDbOpenHelper.open();
         mDbOpenHelper.create();
@@ -79,6 +83,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String[] tempData = arrayData.get(position).split("\\s+");
             Log.e("On Click", "Split Result = " + tempData);
 
+            tts.startTTS(tempData[0] + "에서" + tempData[2]);
+
             btn_Insert.setEnabled(false);
         }
     };
@@ -92,14 +98,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.e("Long Click", "Data: " + arrayData.get(position));
             String[] nowData = arrayData.get(position).split("\\s+");
             Log.e("Long Click", "Split Result = " + nowData);
-            String viewData = nowData[0] + ", " + nowData[1];
+            String viewData = nowData[0] + nowData[1] + nowData[2];
             AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
-            dialog.setTitle("데이터 삭제")
+            tts.startTTS("즐겨찾기 삭제. 해당 데이터를 삭제 하시겠습니까?" + nowData[0] + "에서" + nowData[1] + nowData[2]);
+            dialog.setTitle("즐겨찾기 삭제")
                     .setMessage("해당 데이터를 삭제 하시겠습니까?" + "\n" + viewData)
                     .setPositiveButton("네", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(MainActivity.this, "데이터를 삭제했습니다.", Toast.LENGTH_SHORT).show();
+                            tts.startTTS("네. 데이터를 삭제했습니다.");
                             mDbOpenHelper.deleteColumn(nowIndex);
                             showDatabase(sort);
                             setInsertMode();
@@ -109,12 +117,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(MainActivity.this, "삭제를 취소했습니다.", Toast.LENGTH_SHORT).show();
+                            tts.startTTS("아니오. 삭제를 취소했습니다.");
                             setInsertMode();
                         }
                     })
                     .create()
                     .show();
-            return false;
+            return true;
         }
     };
 
@@ -134,8 +143,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             tempDepart = setTextLength(tempDepart,10);
             String tempArrival = iCursor.getString(int_arrival);
             tempArrival = setTextLength(tempArrival,10);
+            String tempArrow = ">       ";
 
-            String Result = tempDepart + tempArrival;
+            String Result = tempDepart + tempArrow + tempArrival;
             arrayData.add(Result);
             arrayIndex.add(tempIndex);
         }
@@ -162,6 +172,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 arrival = edit_Arrival.getText().toString();
                 mDbOpenHelper.open();
                 mDbOpenHelper.insertColumn(depart, arrival);
+                tts.startTTS(depart + "에서" + arrival + "방면. 즐겨찾기 추가");
                 showDatabase(sort);
                 setInsertMode();
                 edit_Depart.requestFocus();
@@ -172,5 +183,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 showDatabase(sort);
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        tts.close();
+        super.onDestroy();
     }
 }
