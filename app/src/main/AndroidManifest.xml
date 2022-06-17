@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BusApplication_Sample">
         <activity
-            android:name=".MainActivity"
+            android:name=".BusRouteGuideActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,10 +24,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".Rtime"
-            android:screenOrientation="portrait"
-            />
-    </application>
 
+    </application>
 </manifest>
