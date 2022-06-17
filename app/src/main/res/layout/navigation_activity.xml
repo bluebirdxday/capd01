@@ -62,13 +62,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
-        android:fontFamily="@font/slei"
+        android:fontFamily="@font/bm"
         android:insetLeft="10dp"
         android:insetRight="10dp"
-        android:text="@string/strNaviVioce"
-        android:backgroundTint="#FF5722"
-        android:textColor="#424242"
-        android:textSize="35sp"
+        android:text="음성 안내"
+        android:textColor="@color/white"
+        android:textSize="40dp"
         android:textStyle="bold" />
 
 
@@ -77,13 +76,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
-        android:fontFamily="@font/slei"
+        android:fontFamily="@font/bm"
         android:insetLeft="10dp"
         android:insetRight="10dp"
         app:cornerRadius="10dp"
-        android:text="@string/strarrive"
-        android:textColor="#424242"
-        android:textSize="35dp"
+        android:text="도착"
+        android:textColor="@color/white"
+        android:textSize="40dp"
         android:textStyle="bold"
         >
     </Button>

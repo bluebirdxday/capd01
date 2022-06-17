@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#CDDC39">
+        android:background="@color/skyblue_200">
 
         <!-- 탑승 노선 번호 -->
 
@@ -24,8 +24,8 @@
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/vitro"
             android:text="3-1"
-            android:textColor="@color/black"
-            android:textSize="60dp"
+            android:textColor="@color/white"
+            android:textSize="50dp"
             android:textStyle="bold">
 
         </TextView>
@@ -33,7 +33,7 @@
 
         <!-- 음성 안내 버튼-->
         <Button
-            android:id="@+id/btnvoice_root"
+            android:id="@+id/btn_root_voice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -42,8 +42,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="#FF5722"
-            android:fontFamily="@font/slei"
+            android:backgroundTint="#FFCA28"
+            android:fontFamily="@font/samlip"
             android:text="음성 안내"
             android:textColor="@color/white"
             android:textSize="40dp"
@@ -72,13 +72,13 @@
             android:textSize="45dp"
             android:textColor="@color/white"
             android:background="@drawable/my_gradient_drawable"
-            android:fontFamily="@font/slei">
+            android:fontFamily="@font/samlip">
         </TextView>
 
         <!-- 이번 정류장-->
         <TextView
             android:layout_weight="1"
-            android:id="@+id/thisBusStop"
+            android:id="@+id/root_thisBusStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -87,7 +87,7 @@
             android:textColor="@color/black"
             android:text="ex전주대학교"
             android:textSize="40dp"
-            android:fontFamily="@font/slei">
+            android:fontFamily="@font/samlip">
         </TextView>
 
     </LinearLayout>
@@ -114,7 +114,7 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:background="@drawable/my_gradient_drawable"
-            android:fontFamily="@font/slei"
+            android:fontFamily="@font/samlip"
             android:text="다음\n정류장"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -124,7 +124,7 @@
         <!-- 다음 정류장-->
         <TextView
             android:layout_weight="1"
-            android:id="@+id/NextBusStop"
+            android:id="@+id/root_nextBusStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -132,7 +132,7 @@
             android:text="ex전주사대부고"
             android:textColor="@color/black"
             android:textSize="40dp"
-            android:fontFamily="@font/slei">
+            android:fontFamily="@font/samlip">
         </TextView>
 
     </LinearLayout>
@@ -143,7 +143,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />
-    출처: https://selfish-developer.com/entry/안드로이드-선-추가하기 [아는 개발자:티스토리]
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -163,12 +162,12 @@
             android:text="다다음\n정류장"
             android:textColor="@color/white"
             android:textSize="45dp"
-            android:fontFamily="@font/slei"></TextView>
+            android:fontFamily="@font/samlip"></TextView>
 
         <!-- 다다음 정류장-->
         <TextView
             android:layout_weight="1"
-            android:id="@+id/NNextStop"
+            android:id="@+id/root_NNextStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -177,7 +176,7 @@
             android:textAlignment="center"
             android:textSize="40dp"
             android:textColor="@color/black"
-            android:fontFamily="@font/slei">
+            android:fontFamily="@font/samlip">
         </TextView>
     </LinearLayout>
 
@@ -196,7 +195,7 @@
 
         <!-- 정류장 알림 -->
         <Button
-            android:id="@+id/btnVioce_busstop"
+            android:id="@+id/btn_root_vioce_busstop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -205,7 +204,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:backgroundTint="#FFC107"
-            android:fontFamily="@font/slei"
+            android:fontFamily="@font/samlip"
             android:text="정류장알림"
             android:textColor="@color/white"
             android:textSize="40dp"
@@ -215,7 +214,7 @@
 
         <!-- 하차 -->
         <Button
-            android:id="@+id/btnDestination"
+            android:id="@+id/btn_root_destination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -224,8 +223,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="#FF5722"
-            android:fontFamily="@font/slei"
+            android:backgroundTint="@color/gray"
+            android:fontFamily="@font/samlip"
             android:text="하차"
             android:textColor="@color/white"
             android:textSize="40dp"

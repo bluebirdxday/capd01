@@ -23,11 +23,11 @@
         android:id="@+id/btndisplay_back"
         android:layout_width="match_parent"
         android:layout_height="96dp"
-        android:fontFamily="@font/slei"
+        android:fontFamily="@font/bm"
         android:insetLeft="10dp"
         android:insetRight="10dp"
         android:text="뒤로가기"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="50sp"
         app:cornerRadius="10dp"></Button>
 

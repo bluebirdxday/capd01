@@ -13,11 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_margin="10dp"
-        android:drawableLeft="@drawable/icon_search"
-        android:fontFamily="@font/slei"
-        android:text="@string/strDS"
-        android:textColor="@color/black"
-        android:textSize="40dp"
+        android:fontFamily="@font/samlip"
+        android:text="목적지 검색"
+        android:textColor="@color/white"
+        android:textSize="60dp"
         app:cornerRadius="10dp" />
 
     <!-- 음성 조절 -->
@@ -26,12 +25,11 @@
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_margin="10dp"
-        android:drawableLeft="@drawable/voice_icon"
         android:text="음성 속도 조절"
-        android:textColor="@color/black"
-        android:textSize="40dp"
+        android:textColor="@color/white"
+        android:textSize="60dp"
         app:cornerRadius="10dp"
-        android:fontFamily="@font/slei"/>
+        android:fontFamily="@font/samlip"/>
 
     <!-- 즐겨찾기 버튼 -->
     <Button
@@ -39,23 +37,22 @@
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_margin="10dp"
-        android:drawableLeft="@drawable/star_icon"
-        android:text="@string/strStar"
-        android:textColor="@color/black"
-        android:textSize="40dp"
+        android:text="즐겨찾기"
+        android:textColor="@color/white"
+        android:textSize="60dp"
         app:cornerRadius="10dp"
-        android:fontFamily="@font/bm2" />
+        android:fontFamily="@font/samlip" />
 
     <!-- 종료 -->
     <Button
-        android:id="@+id/btnFinish"
+        android:id="@+id/btn_main_finish"
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_margin="10dp"
-        android:text="@string/strFinish"
-        android:textColor="@color/black"
-        android:textSize="40dp"
+        android:text="종료"
+        android:textColor="@color/white"
+        android:textSize="60dp"
         app:cornerRadius="10dp"
-        android:fontFamily="@font/slei"/>
+        android:fontFamily="@font/samlip"/>
 
 </LinearLayout>

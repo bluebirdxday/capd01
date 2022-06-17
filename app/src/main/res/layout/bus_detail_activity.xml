@@ -9,7 +9,7 @@
 
     <!-- 탑승할 버스 번호-->
     <TextView
-        android:id="@+id/detail_bording_BusNum"
+        android:id="@+id/bording_BusNum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -18,7 +18,7 @@
         android:text="ex165"
         android:textSize="70dp"
         android:textStyle="bold"
-        android:fontFamily="@font/slei"
+        android:fontFamily="@font/vitro"
         />
 
     <!-- 남은 시간-->
@@ -26,10 +26,10 @@
         android:id="@+id/detail_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/samlip"
         android:textColor="#424242"
         android:textSize="50dp"
-        android:textStyle="bold"
-        android:fontFamily="@font/slei"/>
+        android:textStyle="bold" />
 
     <!-- 남은 정거장 수-->
     <TextView
@@ -39,7 +39,7 @@
         android:textColor="#424242"
         android:textSize="50dp"
         android:textStyle="bold"
-        android:fontFamily="@font/slei"/>
+        android:fontFamily="@font/samlip"/>
     <!--탑승 -->
     <Button
         android:id="@+id/btn_datail_board"
@@ -47,12 +47,11 @@
         android:layout_height="157dp"
         android:insetLeft="10dp"
         android:insetRight="10dp"
-        android:text="@string/strBoard"
-        android:textColor="#424242"
-        android:textSize="40dp"
-        android:textStyle="bold"
+        android:text="탑승"
+        android:textColor="@color/white"
+        android:textSize="60dp"
         app:cornerRadius="10dp"
-        android:fontFamily="@font/slei"/>
+        android:fontFamily="@font/samlip"/>
     <!--전광판 -->
     <Button
         android:id="@+id/btn_datail_display"
@@ -60,12 +59,11 @@
         android:layout_height="157dp"
         android:insetLeft="10dp"
         android:insetRight="10dp"
-        android:text="@string/strDpNum"
-        android:textColor="#424242"
-        android:textSize="40dp"
-        android:textStyle="bold"
+        android:text="전광판"
+        android:textColor="@color/white"
+        android:textSize="60dp"
         app:cornerRadius="10dp"
-        android:fontFamily="@font/slei"/>
+        android:fontFamily="@font/samlip"/>
     <!--뒤로가기 -->
     <Button
         android:id="@+id/btn_datail_back"
@@ -74,11 +72,10 @@
         android:insetLeft="10dp"
         android:insetRight="10dp"
         android:backgroundTint="@color/gray"
-        android:text="@string/strBack"
+        android:text="뒤로가기"
         android:textColor="#424242"
-        android:textSize="40dp"
-        android:textStyle="bold"
+        android:textSize="50dp"
         app:cornerRadius="10dp"
-        android:fontFamily="@font/slei"/>
+        android:fontFamily="@font/samlip"/>
 
 </LinearLayout>

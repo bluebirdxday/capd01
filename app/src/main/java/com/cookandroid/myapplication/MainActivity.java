@@ -26,9 +26,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnDS;
-    Button btnStar;
-    Button btnFinish;
+    Button btn_main_destination;
+    Button btn_main_star;
+    Button btn_main_finish;
 
     //예늘 변수 즐겨찾기리스트
 
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnDS = (Button) findViewById(R.id.btnDS);
+        btn_main_destination = (Button) findViewById(R.id.btn_main_destination);
 
         /*예늘 변수
         btn_Insert = (Button) findViewById(R.id.btn_insert);
@@ -91,23 +91,23 @@ public class MainActivity extends AppCompatActivity {
 
          */
 
-        btnDS.setOnClickListener(new View.OnClickListener() {
+        btn_main_destination.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
 
-        btnStar = (Button) findViewById(R.id.btnStar);
+        btn_main_star = (Button) findViewById(R.id.btn_main_star);
 
-        btnStar.setOnClickListener(new View.OnClickListener(){
+        btn_main_star.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){}
         });
 
-        btnFinish = (Button) findViewById(R.id.btnFinish);
+        btn_main_finish = (Button) findViewById(R.id.btn_main_finish);
 
-        btnFinish.setOnClickListener(new View.OnClickListener(){
+        btn_main_finish.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 new AlertDialog.Builder(MainActivity.this)
