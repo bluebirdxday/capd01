@@ -262,6 +262,25 @@ public class NavigationActivity extends AppCompatActivity {
             case 13 :
                 iv_direction1.setImageResource(R.drawable.turnright);
                 break;
+            case 14 :
+                iv_direction1.setImageResource(R.drawable.uturn);
+                break;
+            case 15 :
+                iv_direction1.setImageResource(R.drawable.turnleft10oclock);
+                break;
+            case 18 :
+                iv_direction1.setImageResource(R.drawable.turnright2oclock);
+                break;
+            case 125 :
+                iv_direction1.setImageResource(R.drawable.pedestrianoverpass);
+                break;
+            case 127 :
+                iv_direction1.setImageResource(R.drawable.stair);
+                break;
+            case 128 :
+            case 129 :
+                iv_direction1.setImageResource(R.drawable.ramp);
+                break;
             case 200 :
             case 201 :
                 iv_direction1.setImageResource(R.drawable.startpoint);
@@ -269,7 +288,14 @@ public class NavigationActivity extends AppCompatActivity {
             case 211 :
             case 212 :
             case 213 :
+            case 214 :
+            case 215 :
+            case 216 :
+            case 217 :
                 iv_direction1.setImageResource(R.drawable.crosswalk);
+                break;
+            case 218 :
+                iv_direction1.setImageResource(R.drawable.elevator);
                 break;
                 default:
                     iv_direction1.setImageResource(R.drawable.blank);
@@ -286,13 +312,39 @@ public class NavigationActivity extends AppCompatActivity {
             case 13 :
                 iv_direction2.setImageResource(R.drawable.turnright);
                 break;
+            case 14 :
+                iv_direction2.setImageResource(R.drawable.uturn);
+                break;
+            case 15 :
+                iv_direction2.setImageResource(R.drawable.turnleft10oclock);
+                break;
+            case 18 :
+                iv_direction2.setImageResource(R.drawable.turnright2oclock);
+                break;
+            case 125 :
+                iv_direction2.setImageResource(R.drawable.pedestrianoverpass);
+                break;
+            case 127 :
+                iv_direction2.setImageResource(R.drawable.stair);
+                break;
+            case 128 :
+            case 129 :
+                iv_direction2.setImageResource(R.drawable.ramp);
+                break;
             case 201 :
                 iv_direction2.setImageResource(R.drawable.startpoint);
                 break;
             case 211 :
             case 212 :
             case 213 :
+            case 214 :
+            case 215 :
+            case 216 :
+            case 217 :
                 iv_direction2.setImageResource(R.drawable.crosswalk);
+                break;
+            case 218 :
+                iv_direction2.setImageResource(R.drawable.elevator);
                 break;
             default:
                 iv_direction2.setImageResource(R.drawable.blank);
