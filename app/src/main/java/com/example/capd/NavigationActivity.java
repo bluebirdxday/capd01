@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,17 +36,20 @@ public class NavigationActivity extends AppCompatActivity {
     Button btn_arrive;
     TextView direction1;
     TextView direction2;
+    ImageView iv_direction1;
+    ImageView iv_direction2;
     String startName, endName;
     Number start_x, start_y, end_x, end_y; //x : 경도 , y : 위도
     String appKey, host;
-    UserGPS userGPS;
     TTS tts;
-
+    UserGPS userGPS;
 
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSION_REQUEST_CODE = 100;
     String[] PERMISSION = {Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_COARSE_LOCATION};
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,6 +60,8 @@ public class NavigationActivity extends AppCompatActivity {
         btn_arrive = (Button)findViewById(R.id.btn_arrive);
         direction1 = (TextView)findViewById(R.id.direction1);
         direction2 = (TextView)findViewById(R.id.direction2);
+        iv_direction1 = (ImageView)findViewById(R.id.iv_direction1);
+        iv_direction2 = (ImageView)findViewById(R.id.iv_direction2);
 
         startName  = "출발지";
         endName = "목적지"; // 정류장 이름
@@ -82,12 +88,11 @@ public class NavigationActivity extends AppCompatActivity {
         }
 
 
-        userGPS = new UserGPS(NavigationActivity.this);
-
-
         btn_voice_guide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                userGPS = new UserGPS(NavigationActivity.this);
 
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl("https://apis.openapi.sk.com/")
@@ -95,6 +100,7 @@ public class NavigationActivity extends AppCompatActivity {
                         .build();
 
                 PostNavigationService service = retrofit.create(PostNavigationService.class);
+
 
                 start_x = userGPS.getLongitude();
                 start_y = userGPS.getLatitude();
@@ -112,6 +118,11 @@ public class NavigationActivity extends AppCompatActivity {
                             direction1.setText(direction1_description);
                             direction2.setText(direction2_description);
 
+                            Number turnType1 = routeGuidance.features.get(0).properties.getTurnType();
+                            Number turnType2 = routeGuidance.features.get(2).properties.getTurnType();
+
+                            checkTurnType(turnType1, turnType2);
+
                             if (start_x != end_x || start_y != end_y) {
                                 tts.startTTS(direction1_description + " . " + direction2_description);
 
@@ -124,6 +135,8 @@ public class NavigationActivity extends AppCompatActivity {
                             Toast.makeText(NavigationActivity.this, "값 불러오기 실패", Toast.LENGTH_SHORT).show();
 
                         }
+
+
                     }
 
                     @Override
@@ -139,8 +152,10 @@ public class NavigationActivity extends AppCompatActivity {
         btn_arrive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
                 userGPS.stopGPS();
+                finish();
             }
         });
 
@@ -232,14 +247,80 @@ public class NavigationActivity extends AppCompatActivity {
                 || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
     }
 
+
+    public void checkTurnType(Number turnType1, Number turnType2){
+
+
+        switch (turnType1.intValue()){
+            case 11:
+            case 233 :
+                iv_direction1.setImageResource(R.drawable.straight);
+                break;
+            case 12 :
+                iv_direction1.setImageResource(R.drawable.turnleft);
+                break;
+            case 13 :
+                iv_direction1.setImageResource(R.drawable.turnright);
+                break;
+            case 200 :
+            case 201 :
+                iv_direction1.setImageResource(R.drawable.startpoint);
+                break;
+            case 211 :
+            case 212 :
+            case 213 :
+                iv_direction1.setImageResource(R.drawable.crosswalk);
+                break;
+                default:
+                    iv_direction1.setImageResource(R.drawable.blank);
+        }
+
+        switch (turnType2.intValue()){
+            case 11:
+            case 233 :
+                iv_direction2.setImageResource(R.drawable.straight);
+                break;
+            case 12 :
+                iv_direction2.setImageResource(R.drawable.turnleft);
+                break;
+            case 13 :
+                iv_direction2.setImageResource(R.drawable.turnright);
+                break;
+            case 201 :
+                iv_direction2.setImageResource(R.drawable.startpoint);
+                break;
+            case 211 :
+            case 212 :
+            case 213 :
+                iv_direction2.setImageResource(R.drawable.crosswalk);
+                break;
+            default:
+                iv_direction2.setImageResource(R.drawable.blank);
+
+        }
+
+    }
+
+
     @Override
     protected void onDestroy() {
         tts.close();
+        userGPS.stopGPS();
         super.onDestroy();
     }
+
+    @Override
+    protected void onStop() {
+        tts.close();
+        super.onStop();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intent = new Intent(getApplicationContext(), DestinationSearchActivity.class); // DestinationAdapter페이지 > 버스리스트 페이지로 변경
+        startActivity(intent);
+        finish();
+    }
 }
-
-
-
-
-

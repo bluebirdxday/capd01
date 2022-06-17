@@ -18,7 +18,7 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
 
     private List<Data> dataList;
     private Context context;
-
+    TTS tts;
 
     public DestinationAdapter(List<Data> dataList){
         this.dataList = dataList;
@@ -31,14 +31,16 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
         View view = inflater.inflate(R.layout.destination_list_item, parent, false);
         DestinationViewHolder viewHolder = new DestinationViewHolder(view);
         context = parent.getContext();
+        tts = new TTS(context);
         return viewHolder;
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DestinationViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final DestinationViewHolder holder, final int position) {
         final Data item = dataList.get(position);
         holder.setItem(item);
+
 
         holder.destinationName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +53,15 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
                 intent.putExtra("latitude", latitude);
                 intent.putExtra("longitude", longitude);
                 context.startActivity(intent);
-;            }
+            }
+        });
+
+        holder.destinationName.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                tts.startTTS(holder.destinationName.getText().toString());
+                return true;
+            }
         });
 
     }
@@ -60,7 +70,6 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
     public int getItemCount() {
         return dataList.size();
     }
-
 
 
     public class DestinationViewHolder extends RecyclerView.ViewHolder{
@@ -80,5 +89,5 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
     }
 
 
-}
 
+}

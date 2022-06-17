@@ -20,6 +20,8 @@ public class DestinationListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DestinationAdapter destinationAdapter;
 
+    TTS tts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,7 @@ public class DestinationListActivity extends AppCompatActivity {
         Intent intent = new Intent(this.getIntent());
         destination = intent.getStringExtra("destination");
 
+        tts = new TTS(this);
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -43,7 +46,6 @@ public class DestinationListActivity extends AppCompatActivity {
                 destinationAdapter = new DestinationAdapter(c.getDocumentsList());
 
                 recyclerView.setAdapter(destinationAdapter);
-
             }
 
             @Override
@@ -52,9 +54,25 @@ public class DestinationListActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
 
+        Intent intent = new Intent(getApplicationContext(), DestinationSearchActivity.class);
+        startActivity(intent);
+    }
 
+    @Override
+    protected void onDestroy() {
+        tts.close();
+        super.onDestroy();
+    }
 
+    @Override
+    protected void onStop() {
+        tts.close();
+        super.onStop();
     }
 }

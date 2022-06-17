@@ -146,6 +146,8 @@ public class VoiceSpeedSettingActivity extends AppCompatActivity {
         editor = preferences.edit();
         editor.putFloat("speed_number", update_speed);
         editor.commit();
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
     }
 
 
@@ -153,6 +155,21 @@ public class VoiceSpeedSettingActivity extends AppCompatActivity {
     protected void onDestroy() {
         tts.close();
         super.onDestroy();
+    }
+
+    @Override
+    protected void onStop() {
+        tts.close();
+        super.onStop();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
 

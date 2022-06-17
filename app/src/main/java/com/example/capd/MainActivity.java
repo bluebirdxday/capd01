@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         btn_destination_search = (Button)findViewById(R.id.btn_destination_search);
         btn_voice_speed_control = (Button)findViewById(R.id.btn_voice_speed_control);
 
+
+
         tts = new TTS(this);
 
 
@@ -34,10 +36,12 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.btn_destination_search :
                         intent = new Intent(getApplicationContext(), DestinationSearchActivity.class);
                         startActivity(intent);
+                        finish();
                         break;
                     case R.id.btn_voice_speed_control :
                         intent = new Intent(getApplicationContext(), VoiceSpeedSettingActivity.class);
                         startActivity(intent);
+                        finish();
                         break;
                 }
 
@@ -73,5 +77,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         tts.close();
         super.onDestroy();
+    }
+
+    @Override
+    protected void onStop() {
+        tts.close();
+        super.onStop();
     }
 }

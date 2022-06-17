@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UnusedAttribute">
+
+    <font
+        android:fontStyle="normal"
+        android:font="@font/nanumsquarer"/>
+
+    <font
+        android:font="@font/nanumsquareb"
+        android:fontStyle="normal"/>
+
+    <font
+        android:fontStyle="normal"
+        android:font="@font/nanumsquarel" />
+
+    <font
+    android:fontStyle="normal"
+    android:font="@font/nanumsquareeb"/>
+    </font-family>

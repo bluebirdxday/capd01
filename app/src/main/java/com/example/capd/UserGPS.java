@@ -2,30 +2,29 @@ package com.example.capd;
 
 
 import android.Manifest;
-import android.app.Service;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.util.Log;
 
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
+import static android.content.Context.LOCATION_SERVICE;
 
-public class UserGPS extends Service implements LocationListener {
+
+public class UserGPS{
 
     Context context;
     Location location;
     double longitude;
     double latitude;
+    String provider;
 
-    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;
-    private static final long MIN_TIME_BW_UPDATES = 1000*60*1;
+    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 0;
+    private static final long MIN_TIME_BW_UPDATES = 1000;
     protected LocationManager locationManager;
 
     public UserGPS(Context context){
@@ -54,9 +53,25 @@ public class UserGPS extends Service implements LocationListener {
                 } else
                     return null;
 
+
+                if (gpsEnabled){
+                    if (location == null){
+                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                                MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListener);
+                        if (locationManager != null){
+                            location =
+                                    locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                            if (location != null){
+                                longitude = location.getLongitude();
+                                latitude = location.getLatitude();
+                            }
+                        }
+                    }
+                }
+
                 if (networkEnabled) {
                     locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
-                            MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+                            MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListener);
 
                     if (locationManager != null) {
                         location =
@@ -68,20 +83,6 @@ public class UserGPS extends Service implements LocationListener {
                     }
                 }
 
-                if (gpsEnabled){
-                    if (location == null){
-                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                                MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
-                        if (locationManager != null){
-                            location =
-                                    locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                            if (location != null){
-                                longitude = location.getLongitude();
-                                latitude = location.getLatitude();
-                            }
-                        }
-                    }
-                }
             }
         } catch (Exception e) {
             Log.d("UserGPS", "" + e.toString());
@@ -89,6 +90,34 @@ public class UserGPS extends Service implements LocationListener {
         return location;
     }
 
+
+    final LocationListener locationListener = new LocationListener() {
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+        }
+
+        @Override
+        public void onLocationChanged(Location location) {
+            longitude = location.getLongitude();
+            latitude = location.getLatitude();
+            provider = location.getProvider();
+        }
+
+
+        @Override
+        public void onProviderEnabled(String provider) {
+            Log.d("GPS", "onProviderEnabled, provider:" + provider);
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+            Log.d("GPS", "onProviderDisabled, provider:" + provider);
+        }
+
+    };
 
     public double getLongitude(){
         if (location != null){
@@ -104,36 +133,13 @@ public class UserGPS extends Service implements LocationListener {
         return latitude;
     }
 
-    @Nullable
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-
-    }
 
     public void stopGPS(){
         if (locationManager != null){
-            locationManager.removeUpdates(UserGPS.this);
+            locationManager.removeUpdates(locationListener);
         }
     }
+
+
 }
 

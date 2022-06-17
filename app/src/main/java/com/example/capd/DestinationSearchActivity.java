@@ -212,6 +212,7 @@ public class DestinationSearchActivity extends AppCompatActivity {
         Intent intent2 = new Intent(DestinationSearchActivity.this, DestinationListActivity.class);
         intent2.putExtra("destination", destination);
         startActivity(intent2);
+        finish();
     }
 
     @Override
@@ -220,6 +221,19 @@ public class DestinationSearchActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    @Override
+    protected void onStop() {
+        tts.close();
+        super.onStop();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
 
 }
 

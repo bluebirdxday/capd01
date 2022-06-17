@@ -33,13 +33,13 @@ public class ReconfirmDestinationActivity extends AppCompatActivity {
 
         tts = new TTS(this);
 
-        question.setText("목적지를 " + destination + "로 설정하시겠습니까?");
+        question.setText(destination);
 
 
         question.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tts.startTTS(question.getText().toString());
+                tts.startTTS("목적지를 " + question.getText().toString() + "로 설정하시겠습니까?");
             }
         });
 
@@ -92,6 +92,7 @@ public class ReconfirmDestinationActivity extends AppCompatActivity {
         intent.putExtra("latitude", latitude);
         intent.putExtra("longitude", longitude);
         startActivity(intent);
+        finish();
 
     }
 
@@ -99,5 +100,20 @@ public class ReconfirmDestinationActivity extends AppCompatActivity {
     protected void onDestroy() {
         tts.close();
         super.onDestroy();
+    }
+
+    @Override
+    protected void onStop() {
+        tts.close();
+        super.onStop();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intent = new Intent(getApplicationContext(), DestinationSearchActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
