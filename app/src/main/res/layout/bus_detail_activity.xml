@@ -18,6 +18,8 @@
         android:text="ex165"
         android:textSize="70dp"
         android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textAlignment="center"
         android:fontFamily="@font/vitro"
         />
 
@@ -27,19 +29,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/samlip"
-        android:textColor="#424242"
+        android:textColor="@color/red"
         android:textSize="50dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:background="@drawable/round_corner"/>
 
     <!-- 남은 정거장 수-->
     <TextView
         android:id="@+id/detail_busstop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#424242"
+        android:textColor="@color/red"
         android:textSize="50dp"
         android:textStyle="bold"
-        android:fontFamily="@font/samlip"/>
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:fontFamily="@font/samlip"
+        android:background="@drawable/round_corner"/>
     <!--탑승 -->
     <Button
         android:id="@+id/btn_datail_board"

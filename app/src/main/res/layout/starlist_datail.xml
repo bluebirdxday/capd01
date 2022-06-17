@@ -20,7 +20,7 @@
         android:textColor="@color/black"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:fontFamily="@font/slei"/>
+        android:fontFamily="@font/samlip"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
         android:textColor="@color/black"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:fontFamily="@font/slei"/>
+        android:fontFamily="@font/samlip"/>
 
 
 

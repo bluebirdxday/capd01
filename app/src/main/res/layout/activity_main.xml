@@ -11,23 +11,23 @@
     <Button
         android:id="@+id/btn_main_destination"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="110dp"
         android:layout_margin="10dp"
         android:fontFamily="@font/samlip"
         android:text="목적지 검색"
         android:textColor="@color/white"
-        android:textSize="60dp"
+        android:textSize="50dp"
         app:cornerRadius="10dp" />
 
     <!-- 음성 조절 -->
     <Button
         android:id="@+id/btn_main_vioce_speed"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="110dp"
         android:layout_margin="10dp"
         android:text="음성 속도 조절"
         android:textColor="@color/white"
-        android:textSize="60dp"
+        android:textSize="50dp"
         app:cornerRadius="10dp"
         android:fontFamily="@font/samlip"/>
 
@@ -35,11 +35,11 @@
     <Button
         android:id="@+id/btn_main_star"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="110dp"
         android:layout_margin="10dp"
         android:text="즐겨찾기"
         android:textColor="@color/white"
-        android:textSize="60dp"
+        android:textSize="50dp"
         app:cornerRadius="10dp"
         android:fontFamily="@font/samlip" />
 
@@ -47,11 +47,11 @@
     <Button
         android:id="@+id/btn_main_finish"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="110dp"
         android:layout_margin="10dp"
         android:text="종료"
         android:textColor="@color/white"
-        android:textSize="60dp"
+        android:textSize="50dp"
         app:cornerRadius="10dp"
         android:fontFamily="@font/samlip"/>
 

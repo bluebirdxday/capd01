@@ -25,7 +25,8 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/Navi_image1"
             android:padding="5dp"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            android:fontFamily="@font/samlip"/>
 
     </RelativeLayout>
 
@@ -52,7 +53,8 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/Navi_image2"
             android:padding="5dp"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            android:fontFamily="@font/samlip"/>
 
     </RelativeLayout>
 
@@ -62,13 +64,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
-        android:fontFamily="@font/bm"
+        android:fontFamily="@font/samlip"
         android:insetLeft="10dp"
         android:insetRight="10dp"
         android:text="음성 안내"
         android:textColor="@color/white"
-        android:textSize="40dp"
-        android:textStyle="bold" />
+        android:textSize="50dp" />
 
 
     <Button
@@ -76,14 +77,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
-        android:fontFamily="@font/bm"
+        android:fontFamily="@font/samlip"
         android:insetLeft="10dp"
         android:insetRight="10dp"
         app:cornerRadius="10dp"
         android:text="도착"
         android:textColor="@color/white"
-        android:textSize="40dp"
-        android:textStyle="bold"
+        android:textSize="50dp"
         >
     </Button>
 
